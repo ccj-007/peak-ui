@@ -1,9 +1,11 @@
 <template>
   <div class="Home">
     <HeaderTop></HeaderTop>
-    <transition name="router-fade">
-      <router-view />
-    </transition>
+    <div class="main">
+      <transition name="router-fade">
+        <router-view />
+      </transition>
+    </div>
   </div>
 </template>
 <script>
@@ -30,5 +32,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import url('~@/assets/styles/transition.scss');
-
+.main {
+  margin-top: 70px;
+}
 </style>

@@ -4,8 +4,9 @@ import router from './router'
 import store from './store'
 import '@/assets/styles/global.css'
 import '@/assets/fonts/iconfont.css'
-import Button from '@/components/component/index.js'
-Vue.use(Button)
+import install from '@/components/component/index.js'
+Vue.use(install)
+
 // Vue.component('pButton', Button)
 Vue.config.productionTip = false
 
@@ -15,7 +16,7 @@ Vue.directive('highlight', function (el) {
     hljs.highlightBlock(block)
   })
 })
-
+Vue.prototype.$EventBus = new Vue()
 new Vue({
   router,
   store,

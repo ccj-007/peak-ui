@@ -1,7 +1,7 @@
 <template>
   <div class="Notice">
     <div class="item_container">
-      <div class="item_title">提示</div>
+      <div class="item_title">{{$route.meta.title}}</div>
       <div class="item_main">输入一下命令可以安装 peak-ui</div>
       <div class="code">sdad</div>
     </div>

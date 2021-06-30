@@ -3,19 +3,21 @@
     <div class="left">
       <div class="big_title">
         <div class="title">开发指南</div>
-        <router-link class="mini_title" to="/brief">简介</router-link>
-        <router-link class="mini_title" to="/install">安装</router-link>
+        <router-link class="mini_title toggle-title" to="/brief">简介</router-link>
+        <router-link class="mini_title toggle-title" to="/install">安装</router-link>
       </div>
       <div class="big_title">
         <div class="title">基础组件</div>
-        <router-link class="mini_title" to="/button">按钮 Button</router-link>
-        <router-link class="mini_title" to="/input">表单 Input</router-link>
-        <router-link class="mini_title" to="/form">表格 Form</router-link>
-        <router-link class="mini_title" to="/notice">提示 Notice</router-link>
+        <router-link
+          :key="index"
+          :to="item.path"
+          class="mini_title toggle-title"
+          v-for="(item,index) in componentList"
+        >{{item.meta.title}}</router-link>
       </div>
     </div>
     <div class="right">
-        <router-view />
+      <router-view />
     </div>
   </div>
 </template>
@@ -26,13 +28,31 @@ export default {
   components: {},
   data () {
     return {
+      componentList: []
     }
   },
   methods: {
   },
   created () {
+    this.componentList = this.$router.options.routes[1].children[0].children[0].children.slice(2)
+
   },
   mounted () {
+    window.addEventListener('scroll', () => {
+      // 监听滚动事件
+      var t = document.documentElement.scrollTop
+      //获取要操作元素的id
+      var scrollUp = document.getElementById('borderTop');
+      console.log(t);
+      //判断滚动条高度，设置事件
+      if (t > 20) {
+        scrollUp.style.boxShadow = ''
+        scrollUp.style.boxShadow = '0 0px 0px #ccc'
+      } else {
+        scrollUp.style.borderBottom = ''
+        scrollUp.style.boxShadow = '0 2px 6px #ccc'
+      }
+    })
   },
   computed: {
   },
@@ -42,12 +62,12 @@ export default {
   .Aside {
     display: flex;
     justify-content: space-between;
-    height: 800px;
      .left {
-     width: 20%;
+    width: 20%;
     border-right: 1px solid #ccc;
     padding-top: 20px;
     line-height: 24px;
+    height: 1200px;
     .big_title {
       line-height: 40px;
       margin-bottom: 30px;

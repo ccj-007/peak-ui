@@ -1,7 +1,7 @@
 <template>
   <div class="Button">
     <div class="item_container">
-      <div class="item_title">按钮</div>
+      <div class="item_title">{{$route.meta.title}}</div>
       <div class="item_main">按钮的 type 分别为 default、primary、info、success、warning 和 danger</div>
       <!-- 默认图标 -->
       <p-button type="default">默认</p-button>
@@ -51,10 +51,7 @@
       <!-- markdown -->
       <div class="item_code" v-highlight v-html="value"></div>
     </div>
-    <tranTo>
-      <router-link slot="left" to="/install">安装</router-link>
-      <router-link slot="right" to="/input">Input</router-link>
-    </tranTo>
+    <tranTo></tranTo>
   </div>
 </template>
 <script>

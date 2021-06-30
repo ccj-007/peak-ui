@@ -4,9 +4,6 @@
       <div class="item_title">项目简介</div>
       <div class="item_main">Peak-UI是一个轻量级的UI</div>
     </div>
-    <tranTo>
-      <router-link slot="right" to="/install">安装</router-link>
-    </tranTo>
   </div>
 </template>
 <script>
@@ -15,7 +12,6 @@ export default {
   name: 'Brief',
   props: {},
   components: {
-    tranTo
   },
   data () {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <button :class="[`${type}`,`${size}`,{'is-plain':plain}]">
+  <button :class="[`${type}`,`${size}`,{'is-plain':plain}]" @click="handleClick">
     <i :class="`iconfont ${icon}`" v-if="icon"></i>
     <slot></slot>
   </button>
@@ -42,6 +42,9 @@ export default {
     }
   },
   methods: {
+    handleClick(e) {
+      this.$emit('click',e)
+    }
   },
   created () {
   },

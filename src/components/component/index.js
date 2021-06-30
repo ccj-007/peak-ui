@@ -10,8 +10,4 @@ const install = function (Vue, options = {}) {
     Vue.component(key, components[key]);
   });
 }
-
-export default {
-  Button,
-  install
-}
+export default install

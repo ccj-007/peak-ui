@@ -5,10 +5,6 @@
       <div class="item_main">输入一下命令可以安装 peak-ui</div>
       <div class="item_code" v-highlight v-html="value"></div>
     </div>
-    <tranTo>
-      <router-link slot="left" to="/brief">简介</router-link>
-      <router-link slot="right" to="/button">Button</router-link>
-    </tranTo>
   </div>
 </template>
 <script>
@@ -18,7 +14,6 @@ export default {
   name: 'Install',
   props: {},
   components: {
-    tranTo
   },
   data () {
     return {

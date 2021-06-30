@@ -1,27 +1,38 @@
 <template>
-  <div class="HeaderTop">
-    <div class="left">
-      <img alt class="img" src="@/assets/logo.png" />
-      <router-link class="left_title" to="/introduce">Peak UI</router-link>
-    </div>
-    <div class="right">
-      <div class="search_container">
-        <span class="iconfont iconfont_search">&#xe632;</span>
-        <input @input="handleSearch($event)" class="right_search" placeholder="请输入组件名" type="text" />
+  <div class="HeaderTop-container" id="borderTop">
+    <div class="HeaderTop">
+      <div class="left">
+        <img alt class="img" src="@/assets/logo.png" />
+        <router-link class="left_title" to="/introduce">Peak UI</router-link>
       </div>
-      <div class="right_title">
-        <router-link class="green_title" to="/introduce">
-          <span>主页</span>
-          <div class="green_bottom"></div>
-        </router-link>
-        <router-link class="green_title" to="/component">
-          <span>组件</span>
-          <div class="green_bottom"></div>
-        </router-link>
-        <router-link class="green_title" to="/theme">
-          <span>主题</span>
-          <div class="green_bottom"></div>
-        </router-link>
+      <div class="right">
+        <div class="search_container">
+          <span class="iconfont iconfont_search">&#xe632;</span>
+          <input
+            @input="handleSearch($event)"
+            class="right_search"
+            placeholder="请输入组件名"
+            type="text"
+          />
+        </div>
+        <div class="right_title">
+          <router-link class="green_title" to="/introduce">
+            <span class="toggle-title">主页</span>
+            <div class="green_bottom"></div>
+          </router-link>
+          <router-link class="green_title" to="/library">
+            <span class="toggle-title">组件</span>
+            <div class="green_bottom"></div>
+          </router-link>
+          <router-link class="green_title" to="/theme">
+            <span class="toggle-title">主题</span>
+            <div class="green_bottom"></div>
+          </router-link>
+          <a class="green_title" href="javascript:;">
+            <span @click="toggleVisible" class="toggle toggle-title">{{theme}}</span>
+            <div class="green_bottom"></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -34,6 +45,7 @@ export default {
   data () {
     return {
       resultRoute: ['home'],
+      darkShow: false
     }
   },
   methods: {
@@ -56,6 +68,30 @@ export default {
         this.$router.push('/theme')
         e.target.value = ''
       }
+    },
+    toggleVisible () {
+      this.darkShow = !this.darkShow
+      //切换背景颜色
+      const toggle = document.querySelector('.toggle')
+      const body = document.querySelector('body')
+      const HeaderTop = document.querySelector('.HeaderTop-container')
+      const toggleTitle = document.querySelectorAll('.toggle-title')
+      if (this.darkShow) {
+        body.style.backgroundColor = '#000'
+        HeaderTop.style.backgroundColor = '#000'
+        body.style.color = '#fff'
+        toggleTitle.forEach(item => {
+          item.style.color = '#fff'
+        })
+      } else {
+        body.style.backgroundColor = '#fff'
+        HeaderTop.style.backgroundColor = '#fff'
+        body.style.color = '#000'
+        toggleTitle.forEach(item => {
+          item.style.color = '#000'
+        })
+      }
+
     }
   },
   created () {
@@ -83,15 +119,31 @@ export default {
       item.name = item.name.toLowerCase()
       this.resultRoute.push(item.name)
     })
-    console.log(this.resultRoute);
 
+  },
+  updated () {
 
   },
   computed: {
+    theme () {
+      return this.darkShow ? '深色' : '浅色'
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
+.HeaderTop-container {
+  position: fixed;
+  top: 0;
+  left:0 ;
+  height: 70px;
+  overflow: hidden;
+  z-index: 22;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+   box-shadow: 0 2px 6px #ccc;
+}
   .HeaderTop {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 70px;
@@ -156,6 +208,10 @@ export default {
           margin-right: 16px;
           font-size: 14px ;
           position: relative;
+          .toggle {
+
+            
+          }
           .green_bottom {
             width: 28px;
             height: 1.5px;

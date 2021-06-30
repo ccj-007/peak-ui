@@ -2,10 +2,10 @@
   <div class="tranTo">
     <div class="left">
       <span class="iconfont">&#xe628;</span>
-      <slot class="text" name="left"></slot>
+      <router-link :to="downItem.path" class="text" name="left">{{downItem.name}}</router-link>
     </div>
     <div class="right">
-      <slot class="text" name="right"></slot>
+      <router-link :to="upItem.path" class="text" name="right">{{upItem.name}}</router-link>
       <span class="iconfont">&#xe625;</span>
     </div>
   </div>
@@ -17,6 +17,12 @@ export default {
   components: {},
   data () {
     return {
+      upItem: {
+        name: '', path: ''
+      },
+      downItem: {
+        name: '', path: ''
+      },
     }
   },
   methods: {
@@ -24,6 +30,25 @@ export default {
   created () {
   },
   mounted () {
+    const list = this.$router.options.routes[1].children[0].children[0].children.slice(2)
+    let nowIndex = list.findIndex(item =>
+      item.path === this.$route.path);
+    if (nowIndex === 0) {
+      this.upItem.name = list[nowIndex + 1].name
+      this.upItem.path = list[nowIndex + 1].path
+      this.downItem.name = '主页'
+      this.downItem.path = '/home'
+    } else if (nowIndex === list.length - 1) {
+      this.downItem.name = list[nowIndex - 1].name
+      this.downItem.path = list[nowIndex - 1].path
+      this.upItem.name = '主页'
+      this.upItem.path = '/home'
+    } else {
+      this.upItem.name = list[nowIndex + 1].name
+      this.upItem.path = list[nowIndex + 1].path
+      this.downItem.name = list[nowIndex - 1].name
+      this.downItem.path = list[nowIndex - 1].path
+    }
   },
   computed: {
   },
@@ -35,7 +60,7 @@ export default {
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
-    margin: 0 50px;
+    margin: 20px 50px;
    .left {
          display: flex;
 

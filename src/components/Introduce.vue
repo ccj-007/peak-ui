@@ -4,7 +4,7 @@
       <div class="main_title">Peak UI</div>
       <div class="main_introduce">UI component library based on Vue.js 2.X</div>
       <div class="main_button">
-        <router-link to="/component">开始体验</router-link>
+        <router-link to="/library">开始体验</router-link>
         <a href="https://github.com/">github</a>
       </div>
     </main>
