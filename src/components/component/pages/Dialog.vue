@@ -7,7 +7,7 @@
     <p-dialog :visible.sync="visible"></p-dialog>
     <!-- markdown -->
     <div class="item_code" v-highlight v-html="value"></div>
-    <tranTo></tranTo>
+    <tranTo class="tranTo"></tranTo>
   </div>
 </template>
 <script>
@@ -35,6 +35,7 @@ export default {
   methods: {
     openShowDialog () {
       this.visible = true
+
     }
   },
   created () {
@@ -48,5 +49,10 @@ export default {
 </script>
 <style lang="scss" scoped>
  @import url('~@/assets/styles/page.css');
-
+ .tranTo {
+   margin: 20px 0px;
+ }
+ .item_main {
+   padding: 0;
+ }
 </style>

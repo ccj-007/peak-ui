@@ -15,7 +15,7 @@
       </div>
       <div class="footer_container">
         <div class="footer_title">轻量级UI</div>
-        <div class="footer_article">该UI以轻量级为设计目标，同时以简约，视觉冲突为设计理念</div>
+        <div class="footer_article">以简约，轻量化为导向的前端组件风格</div>
       </div>
       <div class="footer_container">
         <div class="footer_title">高复用性</div>
@@ -52,8 +52,8 @@ export default {
     justify-content: center;
     flex-direction: column;
       .main_title {
-        font-size: 80px;
-        margin-top: 60px;
+        font-size: 100px;
+        margin-top: 120px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: 600;
         color:rgb(0, 184, 61);

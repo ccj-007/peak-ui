@@ -44,8 +44,10 @@ export default {
   components: {},
   data () {
     return {
-      resultRoute: ['home'],
-      darkShow: false
+      resultRoute: [],
+      titleRoute: [],
+      darkShow: false,
+      list: []
     }
   },
   methods: {
@@ -56,18 +58,12 @@ export default {
           e.target.value = ''
         }
       })
-      if (e.target.value === '主页') {
-        this.$router.push('/home')
-        e.target.value = ''
-      }
-      if (e.target.value === '组件') {
-        this.$router.push('/component')
-        e.target.value = ''
-      }
-      if (e.target.value === '主题') {
-        this.$router.push('/theme')
-        e.target.value = ''
-      }
+      this.titleRoute.forEach((item, index) => {
+        if (e.target.value === item) {
+          this.$router.push(`${this.list[index].path}`)
+          e.target.value = ''
+        }
+      })
     },
     toggleVisible () {
       this.darkShow = !this.darkShow
@@ -95,6 +91,24 @@ export default {
     }
   },
   created () {
+    this.list = this.$router.options.routes[1].children[0].children[0].children
+    // 组件名
+    let resultList = []
+    this.list.forEach((item, index) =>
+      resultList.push(item.meta.english)
+    )
+    this.list.forEach((item, index) =>
+      this.titleRoute.push(item.meta.title)
+    )
+    console.log(this.titleRoute);
+
+    resultList = resultList.slice(2)
+    resultList.forEach((item, index) => {
+      resultList[index] = item.toLowerCase()
+    }
+    )
+    console.log(resultList);
+
   },
   mounted () {
     let bottom = document.querySelectorAll('.green_bottom')
@@ -204,7 +218,7 @@ export default {
             display: flex;
          align-items: center;
         .green_title {
-          font-weight: 600;
+          font-weight: 400;
           margin-right: 16px;
           font-size: 14px ;
           position: relative;
@@ -214,6 +228,9 @@ export default {
           }
           .green_bottom {
             width: 28px;
+            position: absolute;
+            top: 15px;
+            left: 0;
             height: 1.5px;
             background-color: rgb(0, 184, 61);
             margin-top: 3px;

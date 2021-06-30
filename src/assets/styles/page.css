@@ -11,6 +11,8 @@
 
 .item_container .item_main {
   margin: 40px 0 20px 0;
+  background-color: whitesmoke;
+  padding: 8px 0;
 }
 
 .item_container .item_code {

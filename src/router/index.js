@@ -41,7 +41,7 @@ const routes = [
                 path: '/brief',
                 name: 'Brief',
                 component: Brief,
-                mate: {
+                meta: {
                   title: '简介'
                 }
               },
@@ -58,7 +58,8 @@ const routes = [
                 name: 'Button',
                 component: Button,
                 meta: {
-                  title: '按钮 Button'
+                  title: '按钮',
+                  english: 'Button'
                 }
               },
               {
@@ -66,7 +67,8 @@ const routes = [
                 name: 'Input',
                 component: Input,
                 meta: {
-                  title: '表单 Input'
+                  title: '输入框',
+                  english: 'Input'
                 }
               },
               {
@@ -74,7 +76,8 @@ const routes = [
                 name: 'Form',
                 component: Form,
                 meta: {
-                  title: '表格 Form'
+                  title: '表单',
+                  english: 'Form'
                 }
               },
               {
@@ -82,7 +85,8 @@ const routes = [
                 name: 'Notice',
                 component: Notice,
                 meta: {
-                  title: '提示 Notice'
+                  title: '提示',
+                  english: 'Notice'
                 }
               },
               {
@@ -90,7 +94,9 @@ const routes = [
                 name: 'Dialog',
                 component: Dialog,
                 meta: {
-                  title: '对话框 Dialog'
+                  title: '对话框',
+                  english: 'Dialog'
+
                 }
               },
               {
@@ -98,7 +104,8 @@ const routes = [
                 name: 'Carousel',
                 component: Form,
                 meta: {
-                  title: '轮播图 Carousel'
+                  title: '轮播图',
+                  english: 'Carousel'
                 }
               },
               {
@@ -106,7 +113,8 @@ const routes = [
                 name: 'Card',
                 component: Form,
                 meta: {
-                  title: '卡片 Card'
+                  title: '卡片',
+                  english: 'Card'
                 }
               },
               {
@@ -114,7 +122,8 @@ const routes = [
                 name: 'Checkbox',
                 component: Form,
                 meta: {
-                  title: '复选框 Checkbox'
+                  title: '复选框',
+                  english: 'Checkbox'
                 }
               },
               {
@@ -122,7 +131,8 @@ const routes = [
                 name: 'Tag',
                 component: Form,
                 meta: {
-                  title: '标签 Tag'
+                  title: '标签',
+                  english: 'Tag'
                 }
               },
               {
@@ -130,7 +140,8 @@ const routes = [
                 name: 'Drawer',
                 component: Form,
                 meta: {
-                  title: '抽屉 Drawer'
+                  title: '抽屉',
+                  english: 'Drawer'
                 }
               },
               {
@@ -138,7 +149,8 @@ const routes = [
                 name: 'Image',
                 component: Form,
                 meta: {
-                  title: '图像 Image'
+                  title: '图像',
+                  english: 'Image'
                 }
               },
               {
@@ -146,7 +158,8 @@ const routes = [
                 name: 'Calendar',
                 component: Form,
                 meta: {
-                  title: '日历 Calendar'
+                  title: '日历',
+                  english: 'Calendar'
                 }
               },
               {
@@ -154,7 +167,8 @@ const routes = [
                 name: 'Switch',
                 component: Form,
                 meta: {
-                  title: '开关 Switch'
+                  title: '开关',
+                  english: 'Switch'
                 }
               },
             ]

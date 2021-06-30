@@ -42,8 +42,8 @@ export default {
     }
   },
   methods: {
-    handleClick(e) {
-      this.$emit('click',e)
+    handleClick (e) {
+      this.$emit('click', e)
     }
   },
   created () {

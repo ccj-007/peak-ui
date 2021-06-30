@@ -1,21 +1,26 @@
 <template>
-  <div class="Notice">
-    <div class="item_container">
-      <div class="item_title">{{$route.meta.title}}</div>
-      <div class="item_main">输入一下命令可以安装 peak-ui</div>
-      <div class="code">sdad</div>
+  <div class="pNotice">
+    <div class="peak_notice" v-if="show">
+      <div class="peak_title">提示</div>
+
+      <div class="peak_content">{{value}}</div>
     </div>
-    <tranTo>
-      <router-link slot="left" to="/form">Form</router-link>
-    </tranTo>
   </div>
 </template>
 <script>
-import tranTo from '@/components/component/tranTo'
 export default {
-  name: 'Notice',
-  props: {},
-  components: { tranTo },
+  name: 'pNotice',
+  props: {
+    value: {
+      type: String,
+      default: ''
+    },
+    show: {
+      type: Boolean,
+      default: false
+    }
+  },
+  components: {},
   data () {
     return {
     }
@@ -23,6 +28,8 @@ export default {
   methods: {
   },
   created () {
+    console.log(this.show);
+
   },
   mounted () {
   },
@@ -32,4 +39,25 @@ export default {
 </script>
 <style lang="scss" scoped>
  @import url('~@/assets/styles/page.css');
+.peak_notice {
+  position: fixed;
+  right: 10px;
+  top: 80px;
+  overflow: hidden;
+  width: 300px;
+  padding: 0 20px 20px 20px;
+  background-color: #fff;
+  box-shadow: 2px 4px 10px #ccc;
+  z-index: 34;
+  border-radius: 10px;
+  white-space:normal;//设置文字换行
+ word-wrap : break-word;//设置数字强制换行
+  .peak_title {
+    padding-top: 10px;
+  }
+  .peak_content  {
+    font-size: 12px;
+    padding-top: 10px;
+  }
+}
 </style>

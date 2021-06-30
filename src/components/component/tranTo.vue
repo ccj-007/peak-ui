@@ -61,7 +61,7 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 20px 50px;
-   .left {
+   .left {  
          display: flex;
 
    }

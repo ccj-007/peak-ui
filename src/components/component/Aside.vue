@@ -13,7 +13,7 @@
           :to="item.path"
           class="mini_title toggle-title"
           v-for="(item,index) in componentList"
-        >{{item.meta.title}}</router-link>
+        >{{item.meta.title}} {{item.meta.english}}</router-link>
       </div>
     </div>
     <div class="right">
@@ -67,7 +67,6 @@ export default {
     border-right: 1px solid #ccc;
     padding-top: 20px;
     line-height: 24px;
-    height: 1200px;
     .big_title {
       line-height: 40px;
       margin-bottom: 30px;
